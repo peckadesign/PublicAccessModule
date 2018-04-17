@@ -1,24 +1,23 @@
 <?php declare(strict_types = 1);
 
-namespace App\PublicAccess\Facade;
+namespace Pd\PublicAccess\Facade;
 
 final class CodedTokenFacade
 {
-
 	/**
-	 * @var \App\PublicAccess\Coder\TokenCoder
+	 * @var \Pd\PublicAccess\Coder\TokenCoder
 	 */
 	private $tokenCoder;
 
 	/**
-	 * @var \App\PublicAccess\Tokenizer\Tokenizer
+	 * @var \Pd\PublicAccess\Tokenizer\Tokenizer
 	 */
 	private $tokenizer;
 
 
 	public function __construct(
-		\App\PublicAccess\Coder\TokenCoder $tokenCoder,
-		\App\PublicAccess\Tokenizer\Tokenizer $tokenizer
+		\Pd\PublicAccess\Coder\TokenCoder $tokenCoder,
+		\Pd\PublicAccess\Tokenizer\Tokenizer $tokenizer
 	)
 	{
 		$this->tokenCoder = $tokenCoder;
@@ -35,7 +34,7 @@ final class CodedTokenFacade
 	}
 
 
-	public function createEncodedToken(\App\PublicAccess\PublicAccess $tokenData): string
+	public function createEncodedToken(\Pd\PublicAccess\PublicAccess $tokenData): string
 	{
 		$token = $this->tokenizer->create($tokenData);
 		$encodedToken = $this->tokenCoder->encode($token);

@@ -3,7 +3,7 @@
 	"type": "library",
 	"description": "Secured representing claims between two parties",
 	"homepage": "https://github.com/peckadesign/PublicAccessModule",
-	"license": "proprietary",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "PeckaDesign",
@@ -22,7 +22,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"App\\PublicAccess\\": "src/"
+			"Pd\\PublicAccess\\": "src/"
 		}
 	}
 }

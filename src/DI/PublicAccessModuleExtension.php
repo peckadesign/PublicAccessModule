@@ -1,10 +1,9 @@
 <?php declare(strict_types = 1);
 
-namespace App\PublicAccess\DI;
+namespace Pd\PublicAccess\DI;
 
 final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 {
-
 	public function loadConfiguration(): void
 	{
 		parent::loadConfiguration();
@@ -23,7 +22,7 @@ final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 		\Nette\Utils\Validators::assertField($config, 'publicKey', 'string');
 
 		$builder->addDefinition($this->prefix('asymetricJwtTokenizer'))
-			->setClass(\App\PublicAccess\Tokenizer\AsymetricJwtTokenizer::class)
+			->setClass(\Pd\PublicAccess\Tokenizer\AsymetricJwtTokenizer::class)
 			->setArguments([
 				$config['privateKey'],
 				$config['publicKey'],
@@ -31,17 +30,16 @@ final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 		;
 
 		$builder->addDefinition($this->prefix('mimeTokenCoder'))
-			->setClass(\App\PublicAccess\Coder\MimeTokenCoder::class)
+			->setClass(\Pd\PublicAccess\Coder\MimeTokenCoder::class)
 		;
 
 		$builder->addDefinition($this->prefix('codedTokenFacade'))
-			->setClass(\App\PublicAccess\Facade\CodedTokenFacade::class)
+			->setClass(\Pd\PublicAccess\Facade\CodedTokenFacade::class)
 			->setArguments([
 				'@' . $this->prefix('mimeTokenCoder'),
 				'@' . $this->prefix('asymetricJwtTokenizer'),
 			])
 			->setAutowired(FALSE)
 		;
-
 	}
 }

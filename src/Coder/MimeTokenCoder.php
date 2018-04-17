@@ -1,10 +1,9 @@
 <?php declare(strict_types = 1);
 
-namespace App\PublicAccess\Coder;
+namespace Pd\PublicAccess\Coder;
 
 final class MimeTokenCoder implements TokenCoder
 {
-
 	public function encode(string $token): string
 	{
 		return base64_encode($token);
@@ -15,5 +14,4 @@ final class MimeTokenCoder implements TokenCoder
 	{
 		return base64_decode($token);
 	}
-
 }

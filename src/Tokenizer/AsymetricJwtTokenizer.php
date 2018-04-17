@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace App\PublicAccess\Tokenizer;
+namespace Pd\PublicAccess\Tokenizer;
 
 final class AsymetricJwtTokenizer implements Tokenizer
 {
@@ -27,7 +27,7 @@ final class AsymetricJwtTokenizer implements Tokenizer
 	}
 
 
-	public function create(\App\PublicAccess\PublicAccess $object): string
+	public function create(\Pd\PublicAccess\PublicAccess $object): string
 	{
 		return \Firebase\JWT\JWT::encode($object->jsonSerialize(), $this->privateKey, self::ALGORITHM);
 	}
@@ -37,5 +37,4 @@ final class AsymetricJwtTokenizer implements Tokenizer
 	{
 		return \Firebase\JWT\JWT::decode($token, $this->publicKey, [self::ALGORITHM]);
 	}
-
 }

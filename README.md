@@ -3,12 +3,12 @@ Module is used for representing claims securely between two parties
 
 ## Installation
 Installation using composer:
-```neon
+```
 composer require pd/public-access
 ```
 
 ## Example usage
-Start with `\App\PublicAccess\PublicAccess` interface implementation. 
+Start with `\App\PublicAccess\PublicAccess` interface implementation. Object of this class represents data, which are encoded into shared token.
 ```php
 <?php declare(strict_types = 1);
 
@@ -81,12 +81,12 @@ var_dump($userObject == $decodedUserObject); //TRUE
 
 ## Nette installation
 Register new extension in neon
-```neon
+```
 publicAccess: App\PublicAccess\DI\PublicAccessModuleExtension
 ```
 
 Set your private and public keys
-```neon
+```
 publicAccess:
 	privateKey: path/to/key/my_private_key.pem
 	publicKey: path/to/key/my_public_key.pem
