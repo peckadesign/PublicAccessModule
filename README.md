@@ -8,11 +8,11 @@ composer require pd/public-access
 ```
 
 ## Example usage
-Start with `\App\PublicAccess\PublicAccess` interface implementation. Object of this class represents data, which are encoded into shared token.
+Start with `\Pd\PublicAccess\PublicAccess` interface implementation. Object of this class represents data, which are encoded into shared token.
 ```php
 <?php declare(strict_types = 1);
 
-final class User implements \App\PublicAccess\PublicAccess
+final class User implements \Pd\PublicAccess\PublicAccess
 {
 
 	private const DATETIME_FORMAT = 'Y-m-d H:i:s.u';
@@ -52,7 +52,7 @@ final class User implements \App\PublicAccess\PublicAccess
 	}
 
 
-	public static function createFromStdObject(\stdClass $object): \App\PublicAccess\PublicAccess
+	public static function createFromStdObject(\stdClass $object): \Pd\PublicAccess\PublicAccess
 	{
 		return new self(
 			$object->userId,
@@ -67,7 +67,7 @@ And thats all :)! Now you can tokenize your object of User class with custom tok
 
 ```php
 <?php
-$jwtTokenizer = new App\PublicAccess\Tokenizer\AsymetricJwtTokenizer('privateKey', 'publicKey');
+$jwtTokenizer = new Pd\PublicAccess\Tokenizer\AsymetricJwtTokenizer('privateKey', 'publicKey');
 $userObject = new User(3);
 
 $token = $jwtTokenizer->create($userObject);
@@ -82,7 +82,7 @@ var_dump($userObject == $decodedUserObject); //TRUE
 ## Nette installation
 Register new extension in neon
 ```
-publicAccess: App\PublicAccess\DI\PublicAccessModuleExtension
+publicAccess: Pd\PublicAccess\DI\PublicAccessModuleExtension
 ```
 
 Set your private and public keys
