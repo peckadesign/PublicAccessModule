@@ -4,6 +4,9 @@ namespace Pd\PublicAccess\DI;
 
 final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 {
+	/**
+	 * @throws \Nette\Utils\AssertionException
+	 */
 	public function loadConfiguration(): void
 	{
 		parent::loadConfiguration();
@@ -12,9 +15,10 @@ final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 	}
 
 
-	private function addServiceDefinitions(
-		\Nette\DI\ContainerBuilder $builder
-	): void
+	/**
+	 * @throws \Nette\Utils\AssertionException
+	 */
+	private function addServiceDefinitions(\Nette\DI\ContainerBuilder $builder): void
 	{
 		$config = $this->config;
 
