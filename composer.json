@@ -1,0 +1,28 @@
+{
+	"name": "pd/public-access",
+	"type": "library",
+	"description": "Secured representing claims between two parties",
+	"homepage": "https://github.com/peckadesign/PublicAccessModule",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "PeckaDesign",
+			"homepage": "https://peckadesign.cz/"
+		},
+		{
+			"name": "Marek Hučík",
+			"homepage": "https://hucik.info/"
+		}
+	],
+	"require": {
+		"php": "7.1.*",
+		"nette/utils": ">=2.2",
+		"nette/di": ">=2.2",
+		"firebase/php-jwt": "~5.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Pd\\PublicAccess\\": "src/"
+		}
+	}
+}
