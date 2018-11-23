@@ -15,7 +15,7 @@
 		}
 	],
 	"require": {
-		"php": "7.1.*",
+		"php": ">=7.1",
 		"nette/utils": ">=2.2",
 		"nette/di": ">=2.2",
 		"firebase/php-jwt": "~5.0"
