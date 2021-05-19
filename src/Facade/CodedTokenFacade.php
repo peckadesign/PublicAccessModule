@@ -4,15 +4,10 @@ namespace Pd\PublicAccess\Facade;
 
 final class CodedTokenFacade
 {
-	/**
-	 * @var \Pd\PublicAccess\Coder\TokenCoder
-	 */
-	private $tokenCoder;
 
-	/**
-	 * @var \Pd\PublicAccess\Tokenizer\Tokenizer
-	 */
-	private $tokenizer;
+	private \Pd\PublicAccess\Coder\TokenCoder $tokenCoder;
+
+	private \Pd\PublicAccess\Tokenizer\Tokenizer $tokenizer;
 
 
 	public function __construct(
@@ -25,7 +20,7 @@ final class CodedTokenFacade
 	}
 
 
-	public function getOriginalTokenData(string $token): array
+	public function getOriginalTokenData(string $token): \stdClass
 	{
 		$decodedToken = $this->tokenCoder->decode($token);
 		$tokenData = $this->tokenizer->decode($decodedToken);
@@ -41,4 +36,5 @@ final class CodedTokenFacade
 
 		return $encodedToken;
 	}
+
 }
