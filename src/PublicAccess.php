@@ -4,5 +4,7 @@ namespace Pd\PublicAccess;
 
 interface PublicAccess extends \JsonSerializable
 {
-	public static function createFromStdObject(\stdClass $token);
+
+	public static function createFromStdObject(\stdClass $token): \Pd\PublicAccess\PublicAccess;
+
 }

@@ -4,17 +4,13 @@ namespace Pd\PublicAccess\Tokenizer;
 
 final class AsymetricJwtTokenizer implements Tokenizer
 {
+
 	private const ALGORITHM = 'RS256';
 
-	/**
-	 * @var string
-	 */
-	private $privateKey;
 
-	/**
-	 * @var string
-	 */
-	private $publicKey;
+	private string $privateKey;
+
+	private string $publicKey;
 
 
 	public function __construct(
@@ -22,8 +18,8 @@ final class AsymetricJwtTokenizer implements Tokenizer
 		string $publicKey
 	)
 	{
-		$this->privateKey = openssl_pkey_get_private('file://' . $privateKey);
-		$this->publicKey = openssl_pkey_get_public('file://' . $publicKey);
+		$this->privateKey = \openssl_pkey_get_private('file://' . $privateKey);
+		$this->publicKey = \openssl_pkey_get_public('file://' . $publicKey);
 	}
 
 
@@ -37,4 +33,5 @@ final class AsymetricJwtTokenizer implements Tokenizer
 	{
 		return \Firebase\JWT\JWT::decode($token, $this->publicKey, [self::ALGORITHM]);
 	}
+
 }

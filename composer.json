@@ -15,10 +15,14 @@
 		}
 	],
 	"require": {
-		"php": ">=7.1",
+		"php": ">=7.4",
 		"nette/utils": ">=2.2",
 		"nette/di": ">=2.2",
 		"firebase/php-jwt": "~5.0"
+	},
+	"require-dev": {
+		"pd/coding-standard": "^1.27",
+		"phpstan/phpstan": "^0.12.85"
 	},
 	"autoload": {
 		"psr-4": {

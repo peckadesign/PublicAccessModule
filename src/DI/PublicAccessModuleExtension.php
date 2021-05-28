@@ -4,6 +4,7 @@ namespace Pd\PublicAccess\DI;
 
 final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 {
+
 	/**
 	 * @throws \Nette\Utils\AssertionException
 	 */
@@ -20,7 +21,7 @@ final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 	 */
 	private function addServiceDefinitions(\Nette\DI\ContainerBuilder $builder): void
 	{
-		$config = $this->config;
+		$config = (array) $this->config;
 
 		\Nette\Utils\Validators::assertField($config, 'privateKey', 'string');
 		\Nette\Utils\Validators::assertField($config, 'publicKey', 'string');
@@ -46,4 +47,5 @@ final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 			->setAutowired(FALSE)
 		;
 	}
+
 }
