@@ -6,12 +6,12 @@ parameters:
 			path: src/Tokenizer/AsymetricJwtTokenizer.php
 
 		-
-			message: "#^Property Pd\\\\PublicAccess\\\\Tokenizer\\\\AsymetricJwtTokenizer\\:\\:\\$privateKey \\(string\\) does not accept resource\\|false\\.$#"
+			message: "#^Property Pd\\\\PublicAccess\\\\Tokenizer\\\\AsymetricJwtTokenizer\\:\\:\\$privateKey \\(string\\) does not accept (OpenSSLAsymmetricKey|resource)\\|false\\.$#"
 			count: 1
 			path: src/Tokenizer/AsymetricJwtTokenizer.php
 
 		-
-			message: "#^Property Pd\\\\PublicAccess\\\\Tokenizer\\\\AsymetricJwtTokenizer\\:\\:\\$publicKey \\(string\\) does not accept resource\\|false\\.$#"
+			message: "#^Property Pd\\\\PublicAccess\\\\Tokenizer\\\\AsymetricJwtTokenizer\\:\\:\\$publicKey \\(string\\) does not accept (OpenSSLAsymmetricKey|resource)\\|false\\.$#"
 			count: 1
 			path: src/Tokenizer/AsymetricJwtTokenizer.php
 
