@@ -8,9 +8,15 @@ final class AsymetricJwtTokenizer implements Tokenizer
 	private const ALGORITHM = 'RS256';
 
 
-	private string $privateKey;
+	/**
+	 * @var mixed
+	 */
+	private $privateKey;
 
-	private string $publicKey;
+	/**
+	 * @var mixed
+	 */
+	private $publicKey;
 
 
 	public function __construct(
@@ -31,7 +37,10 @@ final class AsymetricJwtTokenizer implements Tokenizer
 
 	public function decode(string $token): \stdClass
 	{
-		return \Firebase\JWT\JWT::decode($token, $this->publicKey, [self::ALGORITHM]);
+		/** @var \stdClass $decode */
+		$decode = \Firebase\JWT\JWT::decode($token, $this->publicKey, [self::ALGORITHM]);
+
+		return $decode;
 	}
 
 }

@@ -1,17 +1,2 @@
 parameters:
 	ignoreErrors:
-		-
-			message: "#^Method Pd\\\\PublicAccess\\\\Tokenizer\\\\AsymetricJwtTokenizer\\:\\:decode\\(\\) should return stdClass but returns object\\.$#"
-			count: 1
-			path: src/Tokenizer/AsymetricJwtTokenizer.php
-
-		-
-			message: "#^Property Pd\\\\PublicAccess\\\\Tokenizer\\\\AsymetricJwtTokenizer\\:\\:\\$privateKey \\(string\\) does not accept resource\\|false\\.$#"
-			count: 1
-			path: src/Tokenizer/AsymetricJwtTokenizer.php
-
-		-
-			message: "#^Property Pd\\\\PublicAccess\\\\Tokenizer\\\\AsymetricJwtTokenizer\\:\\:\\$publicKey \\(string\\) does not accept resource\\|false\\.$#"
-			count: 1
-			path: src/Tokenizer/AsymetricJwtTokenizer.php
-
