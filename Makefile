@@ -8,3 +8,6 @@ cs:
 
 phpstan:
 	vendor/bin/phpstan analyse --level 8 src/ --no-progress --error-format github
+
+tester:
+	vendor/bin/tester tests

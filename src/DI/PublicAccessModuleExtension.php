@@ -5,12 +5,20 @@ namespace Pd\PublicAccess\DI;
 final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 {
 
+	public function getConfigSchema(): \Nette\Schema\Schema
+	{
+		return \Nette\Schema\Expect::structure([
+			'privateKey' => \Nette\Schema\Expect::string()->required(TRUE),
+			'publicKey' => \Nette\Schema\Expect::string()->required(TRUE),
+		]);
+	}
+
+
 	/**
 	 * @throws \Nette\Utils\AssertionException
 	 */
 	public function loadConfiguration(): void
 	{
-		parent::loadConfiguration();
 		$builder = $this->getContainerBuilder();
 		$this->addServiceDefinitions($builder);
 	}
@@ -23,11 +31,8 @@ final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 	{
 		$config = (array) $this->config;
 
-		\Nette\Utils\Validators::assertField($config, 'privateKey', 'string');
-		\Nette\Utils\Validators::assertField($config, 'publicKey', 'string');
-
 		$builder->addDefinition($this->prefix('asymetricJwtTokenizer'))
-			->setClass(\Pd\PublicAccess\Tokenizer\AsymetricJwtTokenizer::class)
+			->setFactory(\Pd\PublicAccess\Tokenizer\AsymetricJwtTokenizer::class)
 			->setArguments([
 				$config['privateKey'],
 				$config['publicKey'],
@@ -35,11 +40,11 @@ final class PublicAccessModuleExtension extends \Nette\DI\CompilerExtension
 		;
 
 		$builder->addDefinition($this->prefix('mimeTokenCoder'))
-			->setClass(\Pd\PublicAccess\Coder\MimeTokenCoder::class)
+			->setFactory(\Pd\PublicAccess\Coder\MimeTokenCoder::class)
 		;
 
 		$builder->addDefinition($this->prefix('codedTokenFacade'))
-			->setClass(\Pd\PublicAccess\Facade\CodedTokenFacade::class)
+			->setFactory(\Pd\PublicAccess\Facade\CodedTokenFacade::class)
 			->setArguments([
 				'@' . $this->prefix('mimeTokenCoder'),
 				'@' . $this->prefix('asymetricJwtTokenizer'),
