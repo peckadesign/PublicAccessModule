@@ -35,6 +35,6 @@ final class AsymetricJwtTokenizer implements Tokenizer
 
 	public function decode(string $token): \stdClass
 	{
-		return \Firebase\JWT\JWT::decode($token, $this->publicKey, [self::ALGORITHM]);
+		return \Firebase\JWT\JWT::decode($token, new \Firebase\JWT\Key($this->publicKey, self::ALGORITHM));
 	}
 }
