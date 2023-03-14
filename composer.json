@@ -16,8 +16,9 @@
 	],
 	"require": {
 		"php": ">=7.4",
+		"ext-openssl": "*",
 		"nette/di": "^3.0",
-		"firebase/php-jwt": "~5.0"
+		"firebase/php-jwt": "^v6.4"
 	},
 	"require-dev": {
 		"pd/coding-standard": "^1.27",
