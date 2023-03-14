@@ -29,5 +29,10 @@
 		"psr-4": {
 			"Pd\\PublicAccess\\": "src/"
 		}
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }
